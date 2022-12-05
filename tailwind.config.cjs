@@ -13,17 +13,23 @@ module.exports = {
         'pc': '1440px'
       },
       colors: {
-        'style1': '#8E7E74'
+        'style1': '#8E7E74',
+        'style2': '#CFC8C4',
+        'style3': '#FFAC89',
+
       },
       backgroundColor: {
         'bg1': 'rgba(255, 255, 255, 0.9)',
         'bg2': '#FFAC89',
-        'bg3': '#FF7D45'
+        'bg3': '#FF7D45',
+        'bg4': 'rgba(0, 0, 0, 0.5)',
+        'bg5': '#FFFCE3',
+        'bg6': '#CFC8C4',
       },
       fontSize: {
         '2xs': ['clamp(0.76rem, calc(0.71rem + 0.26vw), 1.02rem)'],
         'xs': ['clamp(0.91rem, calc(0.84rem + 0.37vw), 1.28rem)'],
-        'sm': ['clamp(1.09rem, calc(0.99rem + 0.51vw), 1.60rem)'],
+        'sm': ['clamp(1.09rem, calc(0.99rem + 0.51vw), 1.55rem)'],
         'base': ['clamp(1.31rem, calc(1.18rem + 0.69vw), 2.00rem)'],
         'md': ['clamp(1.58rem, calc(1.39rem + 0.93vw), 2.50rem)'],
         'lg': ['clamp(1.89rem, calc(1.64rem + 1.24vw), 3.13rem)'],
@@ -33,9 +39,11 @@ module.exports = {
       },
       fontFamily: {
         'notosans-light': ['notosans-light'],
+        'notosans-bold': ['notosans-bold'],
       },
       dropShadow: {
-        'shadow1': '0px 4px 30px rgba(116, 48, 48, 0.4)'
+        'shadow1': '0px 4px 30px rgba(116, 48, 48, 0.4)',
+        'shadow2': '0px 3.35474px 25.1606px rgba(116, 48, 48, 0.4)'
       },
 
     }

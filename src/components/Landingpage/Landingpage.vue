@@ -1,29 +1,37 @@
 <template>
     <div class="relative w-screen h-screen
-    flex justify-center items-center
+    flex justify-center items-center font-notosans-light
     bg-[url('assets/img/landingbg.png')] bg-no-repeat bg-top bg-cover">
 
+
         <transition name="opacity">
-            <LandingcompA v-if="stepcount == 1" @ppl_anim="ppl_anim" />
-            <LandingcompB v-else-if="stepcount == 2" />
+            <LandingcompA v-if="stepcount === 1" @ppl_anim="ppl_anim" />
+            <LandingcompB v-else-if="stepcount === 2" />
+            <StepOneVue v-else-if="stepcount === 3" />
+            <StepTwo_AVue v-else-if="stepcount === 4" />
+            <StepTwo_BVue v-else-if="stepcount === 5" />
         </transition>
 
-        <div id="ppl_1" class="absolute top-0 -left-[13%] w-[400px] h-[475px]
+
+        <!-- <div id="ppl_1" class="absolute top-0 -left-[13%] w-[400px] h-[475px]
         bg-[url('assets/img/landing_ppl1.png')] bg-no-repeat bg-center bg-cover"></div>
         <div id="ppl_2" class="absolute -bottom-[35%] -left-[3%] w-[500px] h-[500px]
         bg-[url('assets/img/landing_ppl2.png')] bg-no-repeat bg-center bg-cover"></div>
         <div id="ppl_3" class="absolute -top-[13%] -right-[13%] w-[450px] h-[450px]
         bg-[url('assets/img/landing_ppl3.png')] bg-no-repeat bg-center bg-cover"></div>
         <div id="ppl_4" class="absolute -bottom-[35%] right-[7.5%] w-[550px] h-[400px]
-        bg-[url('assets/img/landing_ppl4.png')] bg-no-repeat bg-center bg-cover"></div>
+        bg-[url('assets/img/landing_ppl4.png')] bg-no-repeat bg-center bg-cover"></div> -->
     </div>
 </template>
 
 <script setup lang="ts">
 import LandingcompA from './LandingcompA.vue'
 import LandingcompB from './LandingcompB.vue'
+import StepOneVue from './StepOne.vue'
+import StepTwo_AVue from './StepTwo_A.vue'
+import StepTwo_BVue from './StepTwo_B.vue'
 
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, provide } from 'vue'
 import gsap from 'gsap'
 
 onMounted(() => {
@@ -63,8 +71,9 @@ onMounted(() => {
     }, 1500)
 })
 
-const stepcount = ref(1)
+const stepcount = ref(5)
 const nextstep = () => stepcount.value += 1
+provide('nextsteps', { nextstep })
 const delay_click = ref(true)
 const ppl_anim = () => {
     if (delay_click.value) return
@@ -87,6 +96,13 @@ const ppl_anim = () => {
 
     nextstep()
 }
+
+const username = ref('')
+const setUsername = (name: string) => username.value = name
+provide('setUsername', { username, setUsername })
+const usergender = ref('')
+const setGender = (gender: string) => usergender.value = gender
+provide('setUsergender', { usergender, setGender })
 </script>
 
 <style>
@@ -98,11 +114,10 @@ const ppl_anim = () => {
 
 .opacity-enter-active {
     opacity: 1;
-    transition: all 10s ease;
+    transition: all 1s ease;
 }
 
 .opacity-leave-active {
-    display: none;
-    transition: all 2s ease;
+    transition: all .5s ease;
 }
 </style>
