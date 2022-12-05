@@ -25,6 +25,8 @@ module.exports = {
         'bg4': 'rgba(0, 0, 0, 0.5)',
         'bg5': '#FFFCE3',
         'bg6': '#CFC8C4',
+        'bg7': '#D7FFAE',
+        'bg8': 'rgba(142, 126, 116, 0.1)',
       },
       fontSize: {
         '2xs': ['clamp(0.76rem, calc(0.71rem + 0.26vw), 1.02rem)'],
