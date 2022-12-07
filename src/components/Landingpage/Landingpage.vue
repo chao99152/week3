@@ -10,6 +10,8 @@
             <StepOneVue v-else-if="stepcount === 3" />
             <StepTwo_AVue v-else-if="stepcount === 4" />
             <StepTwo_BVue v-else-if="stepcount === 5" />
+            <StepThree_AVue v-else-if="stepcount === 6" />
+            <StepThree_BVue v-else-if="(stepcount === 7 || 8)" />
         </transition>
 
 
@@ -27,9 +29,11 @@
 <script setup lang="ts">
 import LandingcompA from './LandingcompA.vue'
 import LandingcompB from './LandingcompB.vue'
-import StepOneVue from './StepOne.vue'
-import StepTwo_AVue from './StepTwo_A.vue'
-import StepTwo_BVue from './StepTwo_B.vue'
+import StepOneVue from './Step1.vue'
+import StepTwo_AVue from './Step2_A.vue'
+import StepTwo_BVue from './Step2_B.vue'
+import StepThree_AVue from './Step3_A.vue'
+import StepThree_BVue from './Step3_B.vue'
 
 import { ref, onMounted, provide } from 'vue'
 import gsap from 'gsap'
@@ -71,9 +75,10 @@ onMounted(() => {
     }, 1500)
 })
 
-const stepcount = ref(5)
+const stepcount = ref(7)
 const nextstep = () => stepcount.value += 1
-provide('nextsteps', { nextstep })
+const laststep = () => stepcount.value -= 1
+provide('changesteps', { stepcount, nextstep, laststep })
 const delay_click = ref(true)
 const ppl_anim = () => {
     if (delay_click.value) return

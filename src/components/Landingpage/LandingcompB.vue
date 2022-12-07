@@ -34,5 +34,5 @@
 import { inject } from 'vue';
 
 // provide from Landingpage.vue
-const { nextstep } = inject('nextsteps')
+const { nextstep } = inject('changesteps')
 </script>

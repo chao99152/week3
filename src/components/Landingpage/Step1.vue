@@ -42,7 +42,7 @@ import gsap from 'gsap'
 
 // provide from Landingpage.vue
 const { setUsername } = inject('setUsername')
-const { nextstep } = inject('nextsteps')
+const { nextstep } = inject('changesteps')
 const { setGender } = inject('setUsergender')
 
 onMounted(() => {

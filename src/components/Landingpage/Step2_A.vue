@@ -45,5 +45,5 @@ import { inject } from 'vue';
 
 // provide from Landingpage.vue
 const { username } = inject('setUsername')
-const { nextstep } = inject('nextsteps')
+const { nextstep } = inject('changesteps')
 </script>

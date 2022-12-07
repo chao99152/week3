@@ -53,16 +53,26 @@
                     duration-150 cursor-pointer select-none" @click="submit">我完成了！
             </div>
         </div>
+
+        <teleport to='body'>
+            <StepTwoAlertVue v-if="showAlert" @toggleAlert="toggleAlert" />
+        </teleport>
+
+        <teleport to='body'>
+            <StepTwodoneVue v-if="checkdropCon" />
+        </teleport>
+
     </div>
 </template>
 
 <script setup lang="ts">
+import StepTwoAlertVue from './modal/StepTwoalert.vue'
+import StepTwodoneVue from './modal/StepTwodone.vue'
 import { ref, onMounted, inject } from 'vue';
 import gsap from 'gsap'
 
 // provide from Landingpage.vue
 const { username } = inject('setUsername')
-const { nextstep } = inject('nextsteps')
 
 const dropContainer = ref(['', '', '', ''])
 
@@ -90,7 +100,7 @@ const drop = (e, index) => {
     e.preventDefault()
     if (dropContainer.value[index]) return
 
-    const dragging = document.querySelector('.dragging')
+    const dragging = document.querySelector<HTMLDivElement>('.dragging')
     e.target.appendChild(dragging)
     dragging.style.position = 'relative';
     dragging.style.top = 0;
@@ -115,9 +125,13 @@ const dragLeave = (e, index) => {
     e.target.classList.remove('bg-bg8')
 }
 
+const showAlert = ref(false)
+const toggleAlert = () => showAlert.value = !showAlert.value
 
-
+const checkdropCon = ref(false)
 const submit = () => {
-    // nextstep()
+    let checkArr = dropContainer.value.filter(data => data == '').length
+    if (checkArr) return toggleAlert()
+    checkdropCon.value = true
 }
 </script>

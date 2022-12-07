@@ -1,12 +1,12 @@
 <template>
     <div class="absolute left-0 top-0 w-screen h-screen 
     flex justify-center items-center bg-bg4">
-        <div class="w-[750px] h-[350px]
+        <div class="w-[750px] h-[350px] pt-4
         flex justify-center items-center
         bg-bg1 rounded-[30px] text-base z-10 backdrop-blur-[15px]">
             <div class="w-[70%]">
                 <p class="text-style1 font-bold">嘿！菜鳥！</p>
-                <p class="text-style1 font-bold mt-2">不打算報上名嗎？</p>
+                <p class="text-style1 font-bold mt-2">想跑去哪呢？你的試煉還沒有完成呢！</p>
                 <div class="w-44 h-[70px] mt-12 ml-auto
                 flex justify-evenly items-center 
                 text-style2 font-bold
