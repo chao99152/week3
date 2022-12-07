@@ -22,11 +22,11 @@
                     <p>列出了『產品需求清單』。既然你都來了，<span class="text-style3">來試試看調整</span></p>
                     <p class="text-style3">產品優先度，排出產品待辦清單吧！ </p>
                 </div>
-                <div class="w-full" @click="nextstep">
+                <div class="w-full">
                     <div class="w-52 h-14 ml-auto mr-20
                     flex justify-evenly items-center text-white
                     bg-bg2 hover:bg-bg3 rounded-[10px] 
-                    duration-150 cursor-pointer">
+                    duration-150 cursor-pointer" @click="nextstep">
                         <span>開始試煉</span>
                         <img src="../../assets/img/playbtn.png" alt="">
                     </div>

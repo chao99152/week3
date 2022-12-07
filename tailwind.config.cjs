@@ -27,6 +27,7 @@ module.exports = {
         'bg6': '#CFC8C4',
         'bg7': '#D7FFAE',
         'bg8': 'rgba(142, 126, 116, 0.1)',
+        'bg9': '#FFF8BA',
       },
       fontSize: {
         '2xs': ['clamp(0.76rem, calc(0.71rem + 0.26vw), 1.02rem)'],

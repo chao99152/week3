@@ -55,11 +55,11 @@
         <div class="fixed bottom-6 left-6"><img src="../../assets/img/backbtn.png" alt="" class="cursor-pointer"
                 @click="laststep"></div>
 
-        <div v-if="stepcount == 8" class="absolute bottom-0 left-[20%] origin-bottom duration-300 ease-in delay-300">
+        <div id="step8_ppl_1" class="absolute bottom-0 left-[20%] origin-bottom translate-y-[110%]">
             <img src="../../assets/img/ppl_1.png" alt="">
             <img src="../../assets/img/name_1.png" alt="" class="absolute -top-8 -left-24 max-w-[220px] max-h-[400px]">
         </div>
-        <div v-if="stepcount == 8" class="absolute bottom-0 left-[35%] origin-bottom duration-300 ease-in delay-300">
+        <div id="step8_ppl_2" class="absolute bottom-0 left-[35%] origin-bottom translate-y-[115%]">
             <img src="../../assets/img/ppl_2.png" alt="">
             <img src="../../assets/img/name_2.png" alt=""
                 class="absolute -top-16 -right-20 max-w-[220px] max-h-[400px]">
@@ -73,9 +73,42 @@
 </template>
 
 <script setup lang="ts">
-import { inject } from 'vue';
-
+import { watchEffect, inject } from 'vue';
+import gsap from 'gsap'
 // provide from Landingpage.vue
 const { username } = inject('setUsername')
 const { stepcount, nextstep, laststep } = inject('changesteps')
+
+watchEffect(() => {
+    stepcount.value
+    if (stepcount.value === 8) {
+        let ppl1 = gsap.timeline({})
+        ppl1.to('#step8_ppl_1', {
+            transform: 'translateY(0)',
+            opacity: 1,
+            duration: 0.3,
+            delay: 0.3
+        })
+        let ppl2 = gsap.timeline({})
+        ppl2.to('#step8_ppl_2', {
+            transform: 'translateY(0)',
+            opacity: 1,
+            duration: 0.3,
+            delay: 0.6
+        })
+    } else {
+        let ppl1 = gsap.timeline({})
+        ppl1.to('#step8_ppl_1', {
+            transform: 'translateY(110%)',
+            opacity: 0,
+            duration: 0.3,
+        })
+        let ppl2 = gsap.timeline({})
+        ppl2.to('#step8_ppl_2', {
+            transform: 'translateY(115%)',
+            opacity: 0,
+            duration: 0.3,
+        })
+    }
+}, { flush: 'post' })
 </script>

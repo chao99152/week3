@@ -36,7 +36,7 @@
 </template>
 
 <script setup lang="ts">
-import StepOneAalertVue from './modal/StepOnealert.vue';
+import StepOneAalertVue from './modal/Step1alert.vue';
 import { ref, inject, onMounted } from 'vue'
 import gsap from 'gsap'
 

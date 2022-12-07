@@ -11,7 +11,10 @@
             <StepTwo_AVue v-else-if="stepcount === 4" />
             <StepTwo_BVue v-else-if="stepcount === 5" />
             <StepThree_AVue v-else-if="stepcount === 6" />
-            <StepThree_BVue v-else-if="(stepcount === 7 || 8)" />
+            <StepThree_BVue v-else-if="stepcount === 7 || stepcount === 8" />
+            <StepThree_CVue v-else-if="stepcount === 9" />
+            <StepThree_DVue v-else-if="stepcount === 10" />
+            <StepFour_Vue v-else-if="(stepcount === 11)" />
         </transition>
 
 
@@ -34,6 +37,9 @@ import StepTwo_AVue from './Step2_A.vue'
 import StepTwo_BVue from './Step2_B.vue'
 import StepThree_AVue from './Step3_A.vue'
 import StepThree_BVue from './Step3_B.vue'
+import StepThree_CVue from './Step3_C.vue'
+import StepThree_DVue from './Step3_D.vue'
+import StepFour_Vue from './Step4.vue'
 
 import { ref, onMounted, provide } from 'vue'
 import gsap from 'gsap'
@@ -75,7 +81,7 @@ onMounted(() => {
     }, 1500)
 })
 
-const stepcount = ref(7)
+const stepcount = ref(11)
 const nextstep = () => stepcount.value += 1
 const laststep = () => stepcount.value -= 1
 provide('changesteps', { stepcount, nextstep, laststep })

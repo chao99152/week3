@@ -66,8 +66,8 @@
 </template>
 
 <script setup lang="ts">
-import StepTwoAlertVue from './modal/StepTwoalert.vue'
-import StepTwodoneVue from './modal/StepTwodone.vue'
+import StepTwoAlertVue from './modal/Step2alert.vue'
+import StepTwodoneVue from './modal/Step2done.vue'
 import { ref, onMounted, inject } from 'vue';
 import gsap from 'gsap'
 
