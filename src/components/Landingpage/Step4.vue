@@ -132,6 +132,7 @@ const itemList = ref([
     },
 ])
 const selectedList = ref([])
+const totelPoint = ref(0)
 
 watchEffect(() => {
     selectedList.value
@@ -139,23 +140,20 @@ watchEffect(() => {
     selectedList.value.map(data => totelPoint.value += data.point)
 }, { flush: 'post' })
 
-const totelPoint = ref(0)
 
 const showAlert = ref(false)
 const toggleAlert = () => showAlert.value = !showAlert.value
 
 const checkdropCon = ref(false)
 const submit = () => {
-    // let checkArr = dropContainer.value.filter(data => data == '').length
-    // if (checkArr) return toggleAlert()
-    // toggleAlert()
-    // checkdropCon.value = true
+    if (totelPoint.value >= 20 || !totelPoint.value) return toggleAlert()
+    checkdropCon.value = true
 }
 </script>
 
 <style>
 .list-group {
     width: 100%;
-    min-height: 40px;
+    min-height: 200px;
 }
 </style>
